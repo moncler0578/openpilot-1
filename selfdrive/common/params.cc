@@ -94,6 +94,8 @@ std::unordered_map<std::string, uint32_t> keys = {
     {"AutoRoadSpeedAdjust", PERSISTENT},
     {"AutoRoadSpeedLimitOffset", PERSISTENT},
     {"AutoNaviSpeedCtrlEnd", PERSISTENT},
+    {"AutoNaviSpeedReleaseDist", PERSISTENT},  // 카메라 앞 감속 해제 거리 m (default 0)
+    {"AutoCurveSpeedDecelRate", PERSISTENT},   // 경로 커브 감속 세기 x0.01 m/s² (0=카메라 값 공용)
     {"AutoNaviSpeedBumpTime", PERSISTENT},
     {"AutoNaviSpeedBumpSpeed", PERSISTENT},
     {"AutoNaviSpeedSafetyFactor", PERSISTENT},
@@ -221,6 +223,8 @@ std::unordered_map<std::string, uint32_t> keys = {
     {"CruiseSpeedMin", PERSISTENT},
     {"JerkStartLimit", PERSISTENT},
     {"StoppingDecelRate", PERSISTENT},
+    {"StandstillReleaseSpeed", PERSISTENT},   // 정차 후 자동출발 임계 목표속도 (x0.1 m/s, default 2)
+    {"StandstillReleaseMs", PERSISTENT},      // 자동출발 요구 지속시간 ms (default 100)
 
     {"DynamicLaneProfile", PERSISTENT},
     {"MpcPathCost", PERSISTENT},
@@ -299,6 +303,7 @@ std::unordered_map<std::string, uint32_t> keys = {
     {"LateralTorqueKd", PERSISTENT},           // kd x100
     {"LatAccelFrictionFactor", PERSISTENT},    // friction 입력 횡가속 비율 x100
     {"LatJerkFrictionFactor", PERSISTENT},     // friction 입력 횡저크 비율 x100
+    {"LatLowSpeedCurvTauMs", PERSISTENT},      // 극저속(<2m/s) 목표곡률 저역통과 시간상수 ms (0=끔)
     // ── LiveTorque self-learning (backport from ajouatom/openpilot hoya/c3-atune) ──
     {"ShowBlindSpotAlways", PERSISTENT},       // BSD 벽 상시표시 (진단용, 0=감지시만)         // 기어 변경 팝업 애니메이션
     {"KeepSteeringTurnSignals", PERSISTENT},
@@ -327,6 +332,8 @@ std::unordered_map<std::string, uint32_t> keys = {
     {"XEgoObstacleCost", PERSISTENT},          // 차간거리 추종 강도 (x100, default 600 = 6.0)
     {"EnableSpeedTF", PERSISTENT},
     {"LeadDepartCost", PERSISTENT},            // 저속 출발 추종 코스트 배율 (x100, default 20, apilot=5 기존=45)
+    {"NoLeadCruiseAccelFactor", PERSISTENT},  // No-lead CruiseMax percentage
+    {"NoLeadCruiseJerkLimit", PERSISTENT},    // No-lead accel rise rate (x100 m/s^3)
     {"StartAccelApply", PERSISTENT},
     {"StopAccelApply", PERSISTENT},
     {"SoftHoldMode", PERSISTENT},
