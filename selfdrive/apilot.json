@@ -823,16 +823,6 @@
   },
   {
    "group": "횡방향",
-   "name": "LatLowSpeedCurvTauMs",
-   "title": "LOW SPEED CURV FILTER (ms)",
-   "descr": "2 m/s(7.2 km/h) 이하에서 저속 곡률 보정용 목표 곡률을 부드럽게 하는 시간상수입니다(4 m/s 까지 점감). 앞차 뒤 출발 시 핸들이 좌우로 잘게 흔들리면 올리세요(300~500). 0: 사용 안 함. 기본값: 300.",
-   "min": 0,
-   "max": 1000,
-   "default": 300,
-   "unit": 50
-  },
-  {
-   "group": "횡방향",
    "name": "LatMpcInputOffset",
    "title": "LATMPC INPUT OFFSET",
    "descr": "차선 경로를 MPC에 앞서 입력하는 보상값입니다.\n값 증가(+): 커브에 더 일찍 진입 / 값 감소(-): 더 늦게 진입.\n범위: 0 ~ 20  /  기본값: 4 (=0.04)",
